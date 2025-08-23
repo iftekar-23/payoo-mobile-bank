@@ -1,14 +1,37 @@
 const validPin = 1234;
+// functions to get input value
+function getInputValueNumber(id){
+    const getInputValueNumber = parseInt(document.getElementById(id).value)
+    return getInputValueNumber;
+}
+
+function getInputValue (id){
+    const getInputValue = document.getElementById(id).value
+    return getInputValue;
+}
+
+// functions to get inner text
+
+function getInnerText (id){
+    const availableBalance = parseInt(document.getElementById('available-balance').innerText)
+    return availableBalance;
+}
+
+// function to set inner text
+function setInnerText (value){
+    document.getElementById('available-balance').innerText = value
+}
+
 // Add money
 document.getElementById('add-money-btn')
     .addEventListener('click', function (e) {
         e.preventDefault()
         const bank = document.getElementById('bank')
-        const accountNumber = document.getElementById('account-number').value
-        const addMoney = parseInt(document.getElementById('add-money').value)
-        const addPin = parseInt(document.getElementById('add-pin').value)
-        // console.log(bank, accountNumber, addMoney, addPin)
-        const availableBalance = parseInt(document.getElementById('available-balance').innerText)
+        const accountNumber = getInputValue('account-number')
+        const addMoney = getInputValueNumber('add-money')
+        const addPin = getInputValueNumber('add-pin')
+        const availableBalance = getInnerText('available-balance')
+        console.log(bank, accountNumber, addMoney, addPin, availableBalance)
         // console.log(availableBalance)
 
         if (accountNumber.length < 11) {
@@ -21,7 +44,7 @@ document.getElementById('add-money-btn')
         }
 
         const newAvailableBalance = addMoney + availableBalance
-        document.getElementById('available-balance').innerText = newAvailableBalance
+        setInnerText(newAvailableBalance)
 
     })
 
@@ -30,12 +53,12 @@ document.getElementById('add-money-btn')
 
 document.getElementById('withdraw-btn').addEventListener('click', function (e) {
     e.preventDefault()
-    const addAmount = parseInt(document.getElementById('add-amount').value)
-    const AvailableBalance = parseInt(document.getElementById('available-balance').innerText)
+    const addAmount = getInputValueNumber('add-amount')
+    const AvailableBalance = getInnerText('available-balance')
     // console.log(addAmount, AvailableBalance);
 
-    const agentNumber = document.getElementById('agent-number').value
-    const pinNumber = parseInt(document.getElementById('pin-number').value)
+    const agentNumber = getInputValue('agent-number')
+    const pinNumber = getInputValueNumber('pin-number')
     if (agentNumber.length < 11) {
         alert('Enter Valid Agent Number')
         return;
@@ -46,7 +69,7 @@ document.getElementById('withdraw-btn').addEventListener('click', function (e) {
     }
 
     const totalNewBalance = AvailableBalance - addAmount;
-    document.getElementById('available-balance').innerText = totalNewBalance;
+    setInnerText(totalNewBalance);
 })
 
 
