@@ -1,5 +1,5 @@
 const validPin = 1234;
-
+// Add money
 document.getElementById('add-money-btn')
 .addEventListener('click', function(e){
     e.preventDefault()
@@ -23,4 +23,43 @@ document.getElementById('add-money-btn')
     const newAvailableBalance = addMoney + availableBalance
     document.getElementById('available-balance').innerText = newAvailableBalance
     
+})
+
+
+//withdraw 
+
+document.getElementById('withdraw-btn').addEventListener('click', function(e){
+    e.preventDefault()
+    const addAmount = parseInt(document.getElementById('add-amount').value)
+    const AvailableBalance = parseInt(document.getElementById('available-balance').innerText)
+    // console.log(addAmount, AvailableBalance);
+
+    const agentNumber = document.getElementById('agent-number').value
+    const pinNumber = parseInt(document.getElementById('pin-number').value)
+    if( agentNumber.length<11){
+        alert('Enter Valid Agent Number')
+        return;
+    }
+    if( validPin !== pinNumber){
+        alert('Enter a valid pin')
+        return;
+    }
+
+    const totalNewBalance = AvailableBalance - addAmount;
+    document.getElementById('available-balance').innerText = totalNewBalance;
+})
+
+
+
+
+
+// toggle ing 
+
+document.getElementById('add-m-btn').addEventListener('click', function(){
+    document.getElementById('cashout-section').style.display = 'none';
+    document.getElementById('add-money-section').style.display = 'block';
+})
+document.getElementById('cashout-btn').addEventListener('click', function(){
+    document.getElementById('add-money-section').style.display = 'none';
+    document.getElementById('cashout-section').style.display = 'block';
 })
