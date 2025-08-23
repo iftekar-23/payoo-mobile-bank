@@ -53,28 +53,31 @@ document.getElementById('withdraw-btn').addEventListener('click', function (e) {
 
 
 
-// toggle ing 
+// toggled section 
 
 document.getElementById('add-m-btn').addEventListener('click', function () {
     document.getElementById('cashout-section').style.display = 'none';
     document.getElementById('transfer-section').style.display = 'none';
-    document.getElementById('add-money-section').style.display = 'block';
     document.getElementById('bonus-section').style.display = 'none'
+    document.getElementById('pay-bill-section').style.display = 'none'
+    document.getElementById('add-money-section').style.display = 'block';
 })
 
 document.getElementById('cashout-btn').addEventListener('click', function () {
     document.getElementById('add-money-section').style.display = 'none';
     document.getElementById('transfer-section').style.display = 'none';
-    document.getElementById('cashout-section').style.display = 'block';
     document.getElementById('bonus-section').style.display = 'none'
+    document.getElementById('pay-bill-section').style.display = 'none'
+    document.getElementById('cashout-section').style.display = 'block';
 })
 
 document.getElementById('Transfer')
     .addEventListener('click', function () {
         document.getElementById('add-money-section').style.display = 'none';
         document.getElementById('cashout-section').style.display = 'none';
-        document.getElementById('transfer-section').style.display = 'block';
         document.getElementById('bonus-section').style.display = 'none'
+        document.getElementById('pay-bill-section').style.display = 'none'
+        document.getElementById('transfer-section').style.display = 'block';
     })
 
 document.getElementById('get-bonus')
@@ -82,5 +85,15 @@ document.getElementById('get-bonus')
         document.getElementById('add-money-section').style.display = 'none';
         document.getElementById('cashout-section').style.display = 'none';
         document.getElementById('transfer-section').style.display = 'none';
+        document.getElementById('pay-bill-section').style.display = 'none'
         document.getElementById('bonus-section').style.display = 'block'
+    })
+
+document.getElementById('pay-bill')
+    .addEventListener('click', function () {
+        document.getElementById('add-money-section').style.display = 'none';
+        document.getElementById('cashout-section').style.display = 'none';
+        document.getElementById('transfer-section').style.display = 'none';
+        document.getElementById('bonus-section').style.display = 'none';
+        document.getElementById('pay-bill-section').style.display = 'block';
     })
