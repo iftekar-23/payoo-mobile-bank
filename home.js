@@ -22,6 +22,31 @@ function setInnerText (value){
     document.getElementById('available-balance').innerText = value
 }
 
+// function for toggle
+
+function handleToggle (id){
+     const forms = document.getElementsByClassName('form')
+
+    for(const form of forms){
+        form.style.display = 'none';
+    }
+
+    document.getElementById(id).style.display = 'block';
+}
+// function for btn toggle
+function handleToggleBtn(id){
+    const formBtn = document.getElementsByClassName('form-btn')
+
+    for(const btn of formBtn){
+        btn.classList.remove('border-[#0874f2]', 'bg-[#0874f20d]')
+        btn.classList.add('border-gray-200')
+    }
+    document.getElementById(id).classList.remove('border-gray-200')
+    document.getElementById(id).classList.add('border-[#0874f2]', 'bg-[#0874f20d]')
+}
+
+
+
 // Add money
 document.getElementById('add-money-btn')
     .addEventListener('click', function (e) {
@@ -79,44 +104,61 @@ document.getElementById('withdraw-btn').addEventListener('click', function (e) {
 // toggled section 
 
 document.getElementById('add-m-btn').addEventListener('click', function () {
-    document.getElementById('cashout-section').style.display = 'none';
-    document.getElementById('transfer-section').style.display = 'none';
-    document.getElementById('bonus-section').style.display = 'none'
-    document.getElementById('pay-bill-section').style.display = 'none'
-    document.getElementById('add-money-section').style.display = 'block';
+    // const forms = document.getElementsByClassName('form')
+
+    // for(const form of forms){
+    //     form.style.display = 'none';
+    // }
+
+    // document.getElementById('add-money-section').style.display = 'block';
+    handleToggle('add-money-section')
+    handleToggleBtn('add-m-btn')
+    // document.getElementById('cashout-section').style.display = 'none';
+    // document.getElementById('transfer-section').style.display = 'none';
+    // document.getElementById('bonus-section').style.display = 'none'
+    // document.getElementById('pay-bill-section').style.display = 'none'
+    // document.getElementById('add-money-section').style.display = 'block';
 })
 
 document.getElementById('cashout-btn').addEventListener('click', function () {
-    document.getElementById('add-money-section').style.display = 'none';
-    document.getElementById('transfer-section').style.display = 'none';
-    document.getElementById('bonus-section').style.display = 'none'
-    document.getElementById('pay-bill-section').style.display = 'none'
-    document.getElementById('cashout-section').style.display = 'block';
+    handleToggle('cashout-section')
+    handleToggleBtn('cashout-btn')
+    // document.getElementById('add-money-section').style.display = 'none';
+    // document.getElementById('transfer-section').style.display = 'none';
+    // document.getElementById('bonus-section').style.display = 'none'
+    // document.getElementById('pay-bill-section').style.display = 'none'
+    // document.getElementById('cashout-section').style.display = 'block';
 })
 
 document.getElementById('Transfer')
     .addEventListener('click', function () {
-        document.getElementById('add-money-section').style.display = 'none';
-        document.getElementById('cashout-section').style.display = 'none';
-        document.getElementById('bonus-section').style.display = 'none'
-        document.getElementById('pay-bill-section').style.display = 'none'
-        document.getElementById('transfer-section').style.display = 'block';
+        handleToggle('transfer-section')
+        handleToggleBtn('Transfer')
+        // document.getElementById('add-money-section').style.display = 'none';
+        // document.getElementById('cashout-section').style.display = 'none';
+        // document.getElementById('bonus-section').style.display = 'none'
+        // document.getElementById('pay-bill-section').style.display = 'none'
+        // document.getElementById('transfer-section').style.display = 'block';
     })
 
 document.getElementById('get-bonus')
     .addEventListener('click', function () {
-        document.getElementById('add-money-section').style.display = 'none';
-        document.getElementById('cashout-section').style.display = 'none';
-        document.getElementById('transfer-section').style.display = 'none';
-        document.getElementById('pay-bill-section').style.display = 'none'
-        document.getElementById('bonus-section').style.display = 'block'
+        handleToggle('bonus-section')
+        handleToggleBtn('get-bonus')
+        // document.getElementById('add-money-section').style.display = 'none';
+        // document.getElementById('cashout-section').style.display = 'none';
+        // document.getElementById('transfer-section').style.display = 'none';
+        // document.getElementById('pay-bill-section').style.display = 'none'
+        // document.getElementById('bonus-section').style.display = 'block'
     })
 
 document.getElementById('pay-bill')
     .addEventListener('click', function () {
-        document.getElementById('add-money-section').style.display = 'none';
-        document.getElementById('cashout-section').style.display = 'none';
-        document.getElementById('transfer-section').style.display = 'none';
-        document.getElementById('bonus-section').style.display = 'none';
-        document.getElementById('pay-bill-section').style.display = 'block';
+        handleToggle('pay-bill-section')
+        handleToggleBtn('pay-bill')
+        // document.getElementById('add-money-section').style.display = 'none';
+        // document.getElementById('cashout-section').style.display = 'none';
+        // document.getElementById('transfer-section').style.display = 'none';
+        // document.getElementById('bonus-section').style.display = 'none';
+        // document.getElementById('pay-bill-section').style.display = 'block';
     })
