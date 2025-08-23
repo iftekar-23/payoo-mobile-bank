@@ -48,11 +48,11 @@
                 <img src="./assets/send1.png" class="mx-auto" alt="">
                 <p class="text-center text-[#08080880]">CashOut</p>
             </div>
-            <div class=" border-2 border-gray-200 rounded-xl p-3">
+            <div id="Transfer" class=" border-2 border-gray-200 rounded-xl p-3">
                 <img src="./assets/money1.png" class="mx-auto" alt="">
                 <p class="text-center text-[#08080880] ">Transfer money</p>
             </div>
-            <div class=" border-2 border-gray-200 rounded-xl p-3">
+            <div id="get-bonus" class=" border-2 border-gray-200 rounded-xl p-3">
                 <img src="./assets/bonus1.png" class="mx-auto" alt="">
                 <p class="text-center text-[#08080880]">Get Bonus</p>
             </div>
@@ -120,6 +120,43 @@
                     class="input bg-[#f4f5f7] mt-3 mb-4 rounded-2xl w-full" />
             </div>
             <button id="withdraw-btn" class="btn bg-[#0874f2] text-white rounded-2xl w-full">withdraw</button>
+        </div>
+
+    </section>
+    <section id="transfer-section" class="max-w-lg mx-auto ">
+        <h1 class="my-7 font-bold">Transfer money</h1>
+
+        <div class="bg-white p-8 rounded-xl">
+            <div>
+                <label for="" class="font-semibold">User Account Number</label><br>
+                <input id="user-number" type="text" placeholder="Enter 11 digit number"
+                    class="input bg-[#f4f5f7] mt-3 mb-4 rounded-2xl w-full" />
+            </div>
+            <div>
+                <label for="" class="font-semibold">Amount </label><br>
+                <input id="transfer-amount" type="text" placeholder="Enter amount to withdraw"
+                    class="input bg-[#f4f5f7] mt-3 mb-4 rounded-2xl w-full" />
+            </div>
+            <div>
+                <label for="" class="font-semibold">Pin Number</label><br>
+                <input id="valid-pin" type="text" placeholder="Enter 4 digit pin number"
+                    class="input bg-[#f4f5f7] mt-3 mb-4 rounded-2xl w-full" />
+            </div>
+            <button id="send-btn" class="btn bg-[#0874f2] text-white rounded-2xl w-full">Send Now</button>
+        </div>
+
+    </section>
+    <section id="bonus-section" class="max-w-lg mx-auto ">
+        <h1 class="my-7 font-bold">Transfer money</h1>
+
+        <div class="bg-white p-8 rounded-xl">
+            <div>
+                <label for="" class="font-semibold">Enter Bonus Coupon</label><br>
+                <input id="copun-number" type="text" placeholder="Enter 11 digit number"
+                    class="input bg-[#f4f5f7] mt-3 mb-4 rounded-2xl w-full" />
+            </div>
+            
+            <button id="bonus-btn" class="btn bg-[#0874f2] text-white rounded-2xl w-full">Get Bonus</button>
         </div>
 
     </section>
