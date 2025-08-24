@@ -117,6 +117,9 @@ document.getElementById('withdraw-btn').addEventListener('click', function (e) {
 
 })
 
+
+
+
 document.getElementById('transactions-btn').addEventListener('click', function () {
     // console.log('transactions-btn clicked');
     const transactionsSection = document.getElementById('trans-s');
