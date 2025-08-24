@@ -1,43 +1,46 @@
 const validPin = 1234;
+
+const transactionsDetails = [];
+
 // functions to get input value
-function getInputValueNumber(id){
+function getInputValueNumber(id) {
     const getInputValueNumber = parseInt(document.getElementById(id).value)
     return getInputValueNumber;
 }
 
-function getInputValue (id){
+function getInputValue(id) {
     const getInputValue = document.getElementById(id).value
     return getInputValue;
 }
 
 // functions to get inner text
 
-function getInnerText (id){
+function getInnerText(id) {
     const availableBalance = parseInt(document.getElementById('available-balance').innerText)
     return availableBalance;
 }
 
 // function to set inner text
-function setInnerText (value){
+function setInnerText(value) {
     document.getElementById('available-balance').innerText = value
 }
 
 // function for toggle
 
-function handleToggle (id){
-     const forms = document.getElementsByClassName('form')
+function handleToggle(id) {
+    const forms = document.getElementsByClassName('form')
 
-    for(const form of forms){
+    for (const form of forms) {
         form.style.display = 'none';
     }
 
     document.getElementById(id).style.display = 'block';
 }
 // function for btn toggle
-function handleToggleBtn(id){
+function handleToggleBtn(id) {
     const formBtn = document.getElementsByClassName('form-btn')
 
-    for(const btn of formBtn){
+    for (const btn of formBtn) {
         btn.classList.remove('border-[#0874f2]', 'bg-[#0874f20d]')
         btn.classList.add('border-gray-200')
     }
@@ -56,7 +59,7 @@ document.getElementById('add-money-btn')
         const addMoney = getInputValueNumber('add-money')
         const addPin = getInputValueNumber('add-pin')
         const availableBalance = getInnerText('available-balance')
-        console.log(bank, accountNumber, addMoney, addPin, availableBalance)
+        // console.log(bank, accountNumber, addMoney, addPin, availableBalance)
         // console.log(availableBalance)
 
         if (accountNumber.length < 11) {
@@ -71,6 +74,13 @@ document.getElementById('add-money-btn')
         const newAvailableBalance = addMoney + availableBalance
         setInnerText(newAvailableBalance)
 
+        const data = {
+            name: 'Add money',
+            date: new Date().toLocaleDateString()
+        }
+
+        transactionsDetails.push(data)
+        // console.log(transactionsDetails)
     })
 
 
@@ -95,9 +105,45 @@ document.getElementById('withdraw-btn').addEventListener('click', function (e) {
 
     const totalNewBalance = AvailableBalance - addAmount;
     setInnerText(totalNewBalance);
+
+    const data = {
+        name: 'Cash-out',
+        date: new Date().toLocaleDateString()
+    }
+
+    transactionsDetails.push(data)
+    // console.log(transactionsDetails)
+
+
 })
 
+document.getElementById('transactions-btn').addEventListener('click', function () {
+    // console.log('transactions-btn clicked');
+    const transactionsSection = document.getElementById('trans-s');
+    transactionsSection.innerText = ''
 
+    for (const data of transactionsDetails) {
+        const div = document.createElement('div');
+        div.innerHTML = `
+         <div class="bg-white mt-3 rounded-xl flex justify-between items-center">
+                    <div class="flex items-center p-3 ">
+                        <div>
+                            <img src="./assets/wallet1.png" class="mx-auto border-2 p-3 rounded-full bg-[#f4f5f7]"
+                                alt="">
+                        </div>
+                        <div class="ml-3">
+                            <h1>${data.name}</h1>
+                            <p>${data.date}</p>
+                        </div>
+
+                    </div>
+                    <i class="fa-solid fa-ellipsis-vertical mr-2"></i>
+                </div>
+        `
+        transactionsSection.appendChild(div)
+        // console.log(transactionsDetails)
+    }
+})
 
 
 
@@ -162,3 +208,7 @@ document.getElementById('pay-bill')
         // document.getElementById('bonus-section').style.display = 'none';
         // document.getElementById('pay-bill-section').style.display = 'block';
     })
+document.getElementById('transactions-btn').addEventListener('click', function () {
+    handleToggle('transactions-section')
+    handleToggleBtn('transactions-btn')
+})
